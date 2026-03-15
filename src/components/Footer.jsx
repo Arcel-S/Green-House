@@ -27,9 +27,9 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="md:justify-self-end">
+        <div className="text-center md:justify-self-center">
           <h3 className="font-bold mb-4">Ikuti Kami</h3>
-          <div className="flex gap-4">
+          <div className="flex justify-center gap-4">
             <a
               href="#"
               className="size-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all"
