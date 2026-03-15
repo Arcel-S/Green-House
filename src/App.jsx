@@ -4,7 +4,6 @@ import FeaturedCategories from './components/FeaturedCategories'
 import FeaturedPlants from './components/FeaturedPlants'
 import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
-import MobileBottomNav from './components/MobileBottomNav'
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         <Newsletter />
       </main>
       <Footer />
-      <MobileBottomNav />
     </div>
   )
 }

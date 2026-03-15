@@ -12,7 +12,7 @@ export default function Hero() {
         >
           <div className="max-w-2xl flex flex-col gap-4">
             <h1 className="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight">
-              Hijaukan Ruangmu dengan <span className="text-primary">Green</span>House
+              Hijaukan Ruangmu dengan <span className="text-brand">Green</span>House
             </h1>
             <p className="text-slate-200 text-base md:text-lg font-medium max-w-lg mx-auto">
               Temukan koleksi tanaman hias terbaik yang dikurasi khusus untuk menghadirkan kesegaran di setiap sudut hunian Anda.
