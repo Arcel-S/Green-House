@@ -87,18 +87,7 @@ function CatalogPage() {
             <span className="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back</span>
           </button>
           <h1 className="flex-1 text-center text-xl font-bold">Katalog Tanaman</h1>
-          <Link
-            className="relative hidden md:flex items-center justify-center rounded-lg p-2 transition-colors hover:bg-primary/10"
-            to="/keranjang"
-            aria-label="Keranjang"
-          >
-            <span className="material-symbols-outlined text-slate-900 dark:text-slate-100">shopping_cart</span>
-            {cartCount > 0 && (
-              <span className="absolute right-1 top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] text-white">
-                {cartCount}
-              </span>
-            )}
-          </Link>
+          <div className="w-10"></div>
         </div>
       </header>
 
