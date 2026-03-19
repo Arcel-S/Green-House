@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useCart } from '../hooks/useCart'
 
@@ -11,6 +11,7 @@ const mobileNavItems = [
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { cartCount } = useCart()
+  const headerRef = useRef(null)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev)
@@ -19,6 +20,30 @@ export default function Header() {
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
   }
+
+  // Handle click outside and escape key
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        closeMobileMenu()
+      }
+    }
+
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape') {
+        closeMobileMenu()
+      }
+    }
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+      document.addEventListener('keydown', handleEscapeKey)
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+        document.removeEventListener('keydown', handleEscapeKey)
+      }
+    }
+  }, [isMobileMenuOpen])
 
   const desktopNavClass = ({ isActive }) =>
     `relative px-1 py-1 text-sm font-semibold transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:rounded-full after:bg-brand after:transition-transform after:duration-300 ${
@@ -35,7 +60,7 @@ export default function Header() {
     }`
 
   return (
-    <header className="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90">
+    <header className="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90" ref={headerRef}>
       <div className="relative flex items-center justify-between px-4 py-2">
         <div>
           <h2 className="text-xl font-black tracking-wider text-slate-900 dark:text-slate-100">
@@ -79,19 +104,28 @@ export default function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <nav className="absolute top-full left-4 right-4 md:hidden mt-2 rounded-xl border border-primary/20 bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
-            {mobileNavItems.map((item) => (
-              <NavLink
-                key={item.id}
-                to={item.to}
-                onClick={closeMobileMenu}
-                end={item.to === '/'}
-                className={mobileNavClass}
-              >
-                {item.label}
-              </NavLink>
-            ))}
-          </nav>
+          <>
+            {/* Backdrop overlay */}
+            <div
+              className="fixed inset-0 z-40 md:hidden"
+              onClick={closeMobileMenu}
+              aria-hidden="true"
+            />
+            {/* Mobile menu */}
+            <nav className="absolute top-full left-4 right-4 md:hidden mt-2 rounded-xl border border-primary/20 bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden z-50">
+              {mobileNavItems.map((item) => (
+                <NavLink
+                  key={item.id}
+                  to={item.to}
+                  onClick={closeMobileMenu}
+                  end={item.to === '/'}
+                  className={mobileNavClass}
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+            </nav>
+          </>
         )}
       </div>
     </header>
