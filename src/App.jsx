@@ -1,20 +1,42 @@
+import { Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import FeaturedCategories from './components/FeaturedCategories'
 import FeaturedPlants from './components/FeaturedPlants'
 import Newsletter from './components/Newsletter'
 import Footer from './components/Footer'
+import CatalogPage from './components/CatalogPage'
+import PlantDetailPage from './components/PlantDetailPage'
+import CartPage from './components/CartPage'
+import CollectionPage from './components/CollectionPage'
+
+function HomePage() {
+  const [searchQuery, setSearchQuery] = useState('')
+
+  return (
+    <main className="flex-1">
+      <Hero onSearchSubmit={setSearchQuery} />
+      <FeaturedCategories />
+      <FeaturedPlants searchQuery={searchQuery} />
+      <Newsletter />
+    </main>
+  )
+}
 
 function App() {
   return (
-    <div className="relative flex min-h-screen flex-col overflow-x-hidden">
+    <div className="relative flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1">
-        <Hero />
-        <FeaturedCategories />
-        <FeaturedPlants />
-        <Newsletter />
-      </main>
+      <div className="flex-1">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/katalog" element={<CatalogPage />} />
+          <Route path="/detail-tanaman/:slug" element={<PlantDetailPage />} />
+          <Route path="/keranjang" element={<CartPage />} />
+          <Route path="/koleksi" element={<CollectionPage />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   )
