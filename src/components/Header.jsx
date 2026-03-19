@@ -56,7 +56,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Link to="/keranjang" className="relative flex size-10 items-center justify-center rounded-full hover:bg-primary/10 transition-colors" aria-label="Keranjang">
+          <Link to="/keranjang" onClick={closeMobileMenu} className="relative flex size-10 items-center justify-center rounded-full hover:bg-primary/10 transition-colors" aria-label="Keranjang">
             <span className="material-symbols-outlined text-slate-700 dark:text-slate-300">
               shopping_cart
             </span>
