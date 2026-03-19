@@ -83,6 +83,14 @@ TreeMart adalah aplikasi e-commerce modern untuk jual beli tanaman hias dan pera
 - ✅ **Fixed Mobile Menu Behavior** - Burger menu otomatis tutup saat user klik cart button di mobile
 - ✅ **Page Transition Animations** - Added smooth fade-in + slide up effect antar halaman (0.4s)
 
+### Latest Features (v1.1.1)
+- ✅ **Mobile Menu Close Handlers** - Menu bisa ditutup dengan 4 cara:
+  1. Klik tombol "X" (close button)
+  2. Klik di luar menu area (click outside)
+  3. Tekan tombol `ESC` key
+  4. Klik backdrop overlay (semi-transparent background)
+- ✅ **Backdrop Overlay** - Semi-transparent overlay muncul saat mobile menu terbuka untuk fokus user
+
 ---
 
 ## 🎨 UI/UX Elements
