@@ -73,6 +73,18 @@ TreeMart adalah aplikasi e-commerce modern untuk jual beli tanaman hias dan pera
 
 ---
 
+## 🐛 Recent Bug Fixes & Updates
+
+### Latest Fixes (v1.1.0)
+- ✅ **Fixed SPA Routing 404** - Refresh halaman di `/katalog`, `/koleksi`, dll tidak lagi 404
+  - Ditambah `historyApiFallback` di vite.config.js (dev)
+  - Ditambah `vercel.json` & `netlify.toml` untuk production
+- ✅ **Fixed Duplicate Cart Button on Desktop** - Removed duplicate cart button di CatalogPage header
+- ✅ **Fixed Mobile Menu Behavior** - Burger menu otomatis tutup saat user klik cart button di mobile
+- ✅ **Page Transition Animations** - Added smooth fade-in + slide up effect antar halaman (0.4s)
+
+---
+
 ## 🎨 UI/UX Elements
 
 ### Header (Global Sticky)
