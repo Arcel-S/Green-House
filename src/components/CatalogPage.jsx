@@ -88,7 +88,7 @@ function CatalogPage() {
           </button>
           <h1 className="flex-1 text-center text-xl font-bold">Katalog Tanaman</h1>
           <Link
-            className="relative flex items-center justify-center rounded-lg p-2 transition-colors hover:bg-primary/10"
+            className="relative hidden md:flex items-center justify-center rounded-lg p-2 transition-colors hover:bg-primary/10"
             to="/keranjang"
             aria-label="Keranjang"
           >
