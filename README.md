@@ -371,6 +371,71 @@ Check code quality dengan ESLint
 
 ---
 
+## � Deployment
+
+### Catatan Penting: SPA Routing
+TreeMart adalah Single Page Application (SPA). Saat user refresh di halaman seperti `/katalog`, server harus di-redirect ke `index.html` agar React Router bisa handle routing.
+
+### Deployment ke Vercel (Recommended)
+```bash
+npm install -g vercel
+vercel
+```
+File `vercel.json` sudah di-setup otomatis untuk rewrites.
+
+**Setup di Vercel Dashboard:**
+1. Connect GitHub repository
+2. Vercel auto-detect Vite
+3. Deploy otomatis pada git push
+
+### Deployment ke Netlify
+```bash
+npm install -g netlify-cli
+netlify deploy
+```
+File `netlify.toml` sudah di-setup otomatis untuk redirects.
+
+**Setup di Netlify Dashboard:**
+1. Connect GitHub
+2. Basic settings: Build command `npm run build`, Publish directory `dist`
+3. Deploy
+
+### Deployment ke Platform Lain
+
+**GitHub Pages:**
+```bash
+# Tambah ke package.json:
+# "deploy": "npm run build && gh-pages -d dist"
+
+npm install --save-dev gh-pages
+npm run deploy
+```
+
+**Self-hosted / Docker:**
+- Build: `npm run build`
+- Serve: Gunakan web server (Nginx, Apache) dengan fallback ke `index.html`
+
+**Nginx Config Example:**
+```nginx
+location / {
+  try_files $uri /index.html;
+}
+```
+
+**Apache .htaccess:**
+```apache
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+```
+
+---
+
 ## 📁 Struktur Folder
 
 ```
