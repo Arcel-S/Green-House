@@ -1,13 +1,16 @@
 import { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import { useCart } from '../hooks/useCart'
 
 const mobileNavItems = [
-  { id: 'home', label: 'Home', href: '#home' },
-  { id: 'catalog', label: 'Katalog', href: '#catalog' },
-  { id: 'recommendations', label: 'Rekomendasi', href: '#recommendations' },
+  { id: 'home', label: 'Home', to: '/' },
+  { id: 'catalog', label: 'Katalog', to: '/katalog' },
+  { id: 'collection', label: 'Koleksi', to: '/koleksi' },
 ]
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { cartCount } = useCart()
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev)
@@ -17,33 +20,52 @@ export default function Header() {
     setIsMobileMenuOpen(false)
   }
 
+  const desktopNavClass = ({ isActive }) =>
+    `relative px-1 py-1 text-sm font-semibold transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:rounded-full after:bg-brand after:transition-transform after:duration-300 ${
+      isActive
+        ? 'text-brand after:scale-x-100'
+        : 'text-slate-600 after:scale-x-0 hover:text-primary dark:text-slate-400 dark:hover:text-slate-200'
+    }`
+
+  const mobileNavClass = ({ isActive }) =>
+    `block px-4 py-3 text-sm font-semibold transition-all ${
+      isActive
+        ? 'bg-primary/10 text-brand'
+        : 'text-slate-700 hover:bg-primary/10 dark:text-slate-200'
+    }`
+
   return (
-    <header className="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
-      <div className="relative flex items-center px-4 py-3 justify-between">
+    <header className="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90">
+      <div className="relative flex items-center justify-between px-4 py-2">
         <div>
-          <h2 className="text-slate-900 dark:text-slate-100 text-2xl font-black tracking-wider">
-            <span className="text-brand">Green</span><span>House</span>
+          <h2 className="text-xl font-black tracking-wider text-slate-900 dark:text-slate-100">
+            <span className="text-brand">Tree</span><span>Mart</span>
           </h2>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <a className="text-sm font-semibold text-brand" href="#home">
+          <NavLink className={desktopNavClass} to="/" end>
             Home
-          </a>
-          <a className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#catalog">
+          </NavLink>
+          <NavLink className={desktopNavClass} to="/katalog">
             Katalog
-          </a>
-          <a className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#recommendations">
-            Rekomendasi
-          </a>
+          </NavLink>
+          <NavLink className={desktopNavClass} to="/koleksi">
+            Koleksi
+          </NavLink>
         </div>
 
         <div className="flex items-center gap-2">
-          <button className="flex size-10 items-center justify-center rounded-full hover:bg-primary/10 transition-colors">
+          <Link to="/keranjang" className="relative flex size-10 items-center justify-center rounded-full hover:bg-primary/10 transition-colors" aria-label="Keranjang">
             <span className="material-symbols-outlined text-slate-700 dark:text-slate-300">
               shopping_cart
             </span>
-          </button>
+            {cartCount > 0 && (
+              <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] text-white">
+                {cartCount}
+              </span>
+            )}
+          </Link>
           <button
             className="md:hidden flex size-10 items-center justify-center rounded-full hover:bg-primary/10 transition-colors"
             onClick={toggleMobileMenu}
@@ -59,18 +81,15 @@ export default function Header() {
         {isMobileMenuOpen && (
           <nav className="absolute top-full left-4 right-4 md:hidden mt-2 rounded-xl border border-primary/20 bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
             {mobileNavItems.map((item) => (
-              <a
+              <NavLink
                 key={item.id}
-                href={item.href}
+                to={item.to}
                 onClick={closeMobileMenu}
-                className={`block px-4 py-3 text-sm font-semibold transition-colors ${
-                  item.id === 'home'
-                    ? 'text-brand bg-primary/5'
-                    : 'text-slate-700 dark:text-slate-200 hover:bg-primary/10'
-                }`}
+                end={item.to === '/'}
+                className={mobileNavClass}
               >
                 {item.label}
-              </a>
+              </NavLink>
             ))}
           </nav>
         )}
