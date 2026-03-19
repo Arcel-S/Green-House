@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -25,11 +25,13 @@ function HomePage() {
 }
 
 function App() {
+  const location = useLocation()
+
   return (
     <div className="relative flex min-h-screen flex-col">
       <Header />
-      <div className="flex-1">
-        <Routes>
+      <div className="flex-1 page-transition" key={location.pathname}>
+        <Routes location={location}>
           <Route path="/" element={<HomePage />} />
           <Route path="/katalog" element={<CatalogPage />} />
           <Route path="/detail-tanaman/:slug" element={<PlantDetailPage />} />
