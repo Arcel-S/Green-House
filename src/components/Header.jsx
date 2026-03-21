@@ -61,8 +61,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90" ref={headerRef}>
-      <div className="relative grid grid-cols-[1fr_auto_1fr] items-center px-4 py-2">
-        <div className="justify-self-start">
+      <div className="relative flex items-center justify-between px-4 py-2 md:grid md:grid-cols-[1fr_auto_1fr]">
+        <div className="md:justify-self-start">
           <h2 className="text-xl font-black tracking-wider text-slate-900 dark:text-slate-100">
             <span className="text-brand">Tree</span><span>Mart</span>
           </h2>
@@ -80,7 +80,7 @@ export default function Header() {
           </NavLink>
         </div>
 
-        <div className="flex items-center justify-self-end gap-2">
+        <div className="ml-auto flex items-center gap-2 md:ml-0 md:justify-self-end">
           <Link to="/keranjang" onClick={closeMobileMenu} className="relative flex size-10 items-center justify-center rounded-full hover:bg-primary/10 transition-colors" aria-label="Keranjang">
             <span className="material-symbols-outlined text-slate-700 dark:text-slate-300">
               shopping_cart

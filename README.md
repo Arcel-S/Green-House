@@ -5,6 +5,7 @@ TreeMart adalah aplikasi e-commerce modern untuk jual beli tanaman hias dan pera
 ---
 
 ## 📋 Daftar Isi
+- [Ringkasan Framework & Alur Kerja](#-ringkasan-framework--alur-kerja)
 - [Log Pembaruan Per Update](#-log-pembaruan-per-update)
 - [Fitur Utama](#fitur-utama)
 - [UI/UX Elements](#uiux-elements)
@@ -442,6 +443,41 @@ location / {
   try_files $uri /index.html;
 }
 ```
+
+## 🧭 Ringkasan Framework & Alur Kerja
+
+Supaya mudah dipahami, proyek ini dibangun dengan pendekatan berikut:
+
+### 1) Framework yang dipakai
+- **React + Vite + Tailwind CSS**
+- Tujuannya: aplikasi web terasa cepat, tampilan rapi, dan mudah dikembangkan saat ada revisi.
+
+### 2) Alur kerja yang dipakai
+Untuk proyek ini, alur yang paling cocok adalah **Agile (iteratif)**, bukan waterfall murni.
+
+Kenapa Agile?
+- Karena proses kita nyata di lapangan adalah: **diskusi kebutuhan -> implementasi -> review klien -> revisi -> update lagi**.
+- Pola seperti ini lebih pas disebut iteratif (bertahap dan berulang), bukan sekali jadi.
+
+Alur sederhana yang kita jalankan:
+1. Kumpulkan kebutuhan awal dari klien.
+2. Kerjakan fitur versi pertama yang bisa dicoba.
+3. Minta feedback klien (uji tampilan/fungsi).
+4. Catat revisi dan prioritas.
+5. Implementasi revisi per pembaruan (satu per satu).
+6. Update dokumentasi README dan GitHub per perubahan.
+7. Ulangi siklus sampai hasil sesuai kebutuhan klien.
+
+### 3) Kenapa bukan Waterfall penuh?
+- Waterfall cocok jika kebutuhan dari awal sudah sangat tetap.
+- Di proyek ini, kebutuhan berubah mengikuti feedback klien, jadi model iteratif lebih aman dan cepat menyesuaikan.
+
+### 4) Praktik yang dipakai di repository ini
+- Setiap perubahan besar dicatat di log pembaruan README.
+- Commit dibuat bertahap berdasarkan tema perubahan.
+- Setelah valid, perubahan dipush ke GitHub agar histori rapi dan mudah ditelusuri.
+
+---
 
 ## 📝 Log Pembaruan Per Update
 
