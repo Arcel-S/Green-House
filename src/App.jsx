@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import FeaturedCategories from './components/FeaturedCategories'
@@ -10,6 +10,7 @@ import CatalogPage from './components/CatalogPage'
 import PlantDetailPage from './components/PlantDetailPage'
 import CartPage from './components/CartPage'
 import CollectionPage from './components/CollectionPage'
+import MobileBottomNav from './components/MobileBottomNav'
 
 function HomePage() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -27,10 +28,14 @@ function HomePage() {
 function App() {
   const location = useLocation()
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [location.pathname])
+
   return (
     <div className="relative flex min-h-screen flex-col">
       <Header />
-      <div className="flex-1 page-transition" key={location.pathname}>
+      <div className="flex-1 page-transition pb-16 md:pb-0" key={location.pathname}>
         <Routes location={location}>
           <Route path="/" element={<HomePage />} />
           <Route path="/katalog" element={<CatalogPage />} />
@@ -39,6 +44,7 @@ function App() {
           <Route path="/koleksi" element={<CollectionPage />} />
         </Routes>
       </div>
+      <MobileBottomNav />
       <Footer />
     </div>
   )

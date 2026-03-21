@@ -7,15 +7,16 @@ import AddToCartButton from './AddToCartButton'
 
 const filterChips = [
   { label: 'Semua', value: 'Semua' },
-  { label: 'Indoor', value: 'Indoor' },
-  { label: 'Sukulen', value: 'Sukulen' },
-  { label: 'Tanaman Gantung', value: 'Tanaman Gantung' },
-  { label: 'Meja Kerja', value: 'Meja Kerja' },
+  { label: 'Pohon Kayu Keras', value: 'Pohon Kayu Keras' },
+  { label: 'Pioneer', value: 'Pioneer' },
+  { label: 'Tanaman Hias & Estetika', value: 'Tanaman Hias & Estetika' },
+  { label: 'Tanaman Pangan', value: 'Tanaman Pangan' },
 ]
 
 function CatalogPage() {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
+  const [searchQuery, setSearchQuery] = useState('')
   const { addItemToCart, cartCount } = useCart()
   const { toggleFavoritePlant, isPlantFavorite } = useFavorites()
   const [careSortDirection, setCareSortDirection] = useState(null)
@@ -29,11 +30,20 @@ function CatalogPage() {
     Sedang: 3,
     Sulit: 4,
   }
+  const normalizedQuery = searchQuery.trim().toLowerCase()
 
-  const filteredPlants =
-    selectedFilter === 'Semua'
-      ? catalogPlants
-      : catalogPlants.filter((plant) => plant.category === selectedFilter)
+  const filteredPlants = useMemo(() => {
+    const byCategory =
+      selectedFilter === 'Semua'
+        ? catalogPlants
+        : catalogPlants.filter((plant) => plant.category === selectedFilter)
+
+    if (!normalizedQuery) {
+      return byCategory
+    }
+
+    return byCategory.filter((plant) => plant.name.toLowerCase().includes(normalizedQuery))
+  }, [normalizedQuery, selectedFilter])
 
   const parsePriceValue = (priceLabel) =>
     Number(String(priceLabel).replace(/[^0-9]/g, '')) || 0
@@ -101,6 +111,8 @@ function CatalogPage() {
               className="block w-full rounded-xl border border-primary/10 bg-white py-3 pl-10 pr-4 text-slate-900 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-primary dark:border-primary/30 dark:bg-primary/10 dark:text-slate-100"
               placeholder="Cari tanaman impian Anda..."
               type="text"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
             />
           </div>
         </div>
@@ -240,31 +252,13 @@ function CatalogPage() {
         </div>
         {displayedPlants.length === 0 && (
           <div className="rounded-xl border border-primary/20 bg-white/80 p-5 text-sm text-slate-700 dark:bg-primary/10 dark:text-slate-200">
-            Tidak ada tanaman untuk kategori {selectedFilter}.
+            {normalizedQuery
+              ? `Tidak ada tanaman yang cocok dengan pencarian "${searchQuery}"${selectedFilter !== 'Semua' ? ` di kategori ${selectedFilter}` : ''}.`
+              : `Tidak ada tanaman untuk kategori ${selectedFilter}.`}
           </div>
         )}
       </main>
 
-      <nav className="pb-safe-area-inset-bottom fixed bottom-0 left-0 right-0 z-30 border-t border-primary/10 bg-white dark:border-primary/20 dark:bg-background-dark md:hidden">
-        <div className="mx-auto flex h-16 max-w-5xl items-center justify-around px-4">
-          <Link className="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" to="/">
-            <span className="material-symbols-outlined">home</span>
-            <span className="text-[10px] font-medium">Beranda</span>
-          </Link>
-          <Link className="flex flex-col items-center gap-1 text-primary" to="/katalog">
-            <span className="material-symbols-outlined fill-1">potted_plant</span>
-            <span className="text-[10px] font-bold">Katalog</span>
-          </Link>
-          <Link className="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" to="/koleksi">
-            <span className="material-symbols-outlined">eco</span>
-            <span className="text-[10px] font-medium">Koleksi</span>
-          </Link>
-          <a className="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
-            <span className="material-symbols-outlined">person</span>
-            <span className="text-[10px] font-medium">Profil</span>
-          </a>
-        </div>
-      </nav>
     </div>
   )
 }

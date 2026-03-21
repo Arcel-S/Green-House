@@ -75,6 +75,7 @@ export default function FeaturedPlants({ searchQuery = '' }) {
   const filteredPlants = randomizedPlants.filter((plant) =>
     plant.name.toLowerCase().includes(normalizedQuery),
   )
+  const displayedPlants = filteredPlants.slice(0, 4)
 
   return (
     <section id="popular-plants" className="px-4 py-8 bg-primary/5 dark:bg-primary/10">
@@ -91,9 +92,9 @@ export default function FeaturedPlants({ searchQuery = '' }) {
           Hasil pencarian untuk: <span className="font-bold">{searchQuery}</span>
         </p>
       )}
-      {filteredPlants.length > 0 ? (
+      {displayedPlants.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {filteredPlants.map((plant) => (
+          {displayedPlants.map((plant) => (
             <PlantCard
               key={plant.id}
               plant={plant}

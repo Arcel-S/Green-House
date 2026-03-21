@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-slate-100 dark:bg-black/20 border-t border-primary/10 pt-12 pb-12 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
           <div>
             <h2 className="text-xl font-black tracking-wider"><span className="text-brand">Tree</span>Mart</h2>
           </div>
