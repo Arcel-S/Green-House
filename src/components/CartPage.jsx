@@ -147,6 +147,18 @@ export default function CartPage() {
     openClearCartDialog()
   }
 
+  function handleCheckout() {
+    const checkoutWindow = window.open(checkoutWhatsAppUrl, '_blank', 'noopener,noreferrer')
+
+    if (checkoutWindow) {
+      clearCart()
+      return
+    }
+
+    clearCart()
+    window.location.href = checkoutWhatsAppUrl
+  }
+
   useEffect(() => {
     document.title = 'TreeMart - Keranjang'
   }, [])
@@ -250,7 +262,7 @@ export default function CartPage() {
               <button
                 type="button"
                 className="rounded-lg bg-primary px-5 py-2 text-sm font-bold text-white"
-                onClick={() => window.open(checkoutWhatsAppUrl, '_blank', 'noopener,noreferrer')}
+                onClick={handleCheckout}
               >
                 Checkout
               </button>
