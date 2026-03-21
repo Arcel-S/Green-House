@@ -233,7 +233,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Saat fase bibit hingga tinggi 1-2 meter, meranti sangat butuh naungan (toleran naungan). Jangan dijemur langsung di bawah matahari karena daunnya mudah terbakar.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-alpukat-siger': {
@@ -258,7 +258,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Membutuhkan sinar matahari penuh (full sun) sepanjang hari agar proses fotosintesis maksimal dan cepat berbunga saat waktunya tiba.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-sengon': {
@@ -283,7 +283,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Pohon pionir yang wajib kena sinar matahari langsung. Semakin banyak cahaya, pertumbuhannya akan semakin pesat.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-pucuk-merah': {
@@ -308,7 +308,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Wajib terkena paparan sinar matahari penuh (full sun). Jika ditanam di tempat teduh, warna daun merahnya tidak akan keluar dan cenderung memudar jadi hijau semua.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-sikat-botol': {
@@ -333,7 +333,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Menyukai sinar matahari penuh. Kondisi panas justru merangsang pembungaan yang lebih lebat.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'jati-putih': {
@@ -358,7 +358,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Sangat menyukai intensitas cahaya tinggi (intoleran naungan). Butuh ruang terbuka.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-kembang-merak': {
@@ -383,7 +383,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Semakin banyak sinar matahari yang didapat, semakin semarak dan lebat bunganya mekar.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-kaliandra': {
@@ -408,7 +408,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Tumbuh optimal di tempat terbuka yang terpapar matahari langsung.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-tabebuya': {
@@ -433,7 +433,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Wajib full sun. Musim kemarau yang kering dan panas justru menjadi pemicu utama rontoknya daun dan mekarnya bunga secara serentak.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-mahoni': {
@@ -458,7 +458,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Menyukai cahaya matahari penuh. Dapat beradaptasi baik di kondisi tanah yang kurang subur asalkan cahayanya melimpah.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-akasia': {
@@ -483,7 +483,7 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Sangat toleran terhadap panas ekstrem. Membutuhkan sinar matahari penuh sejak fase awal tanam di lahan.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 
   'bibit-ulin': {
@@ -508,6 +508,6 @@ export const plantDetailsBySlug = {
     ],
     lightNeeds:
       'Tumbuh baik di area terbuka dengan sinar matahari cukup, namun bibit muda tetap perlu adaptasi bertahap pada panas terik.',
-    whatsappUrl: 'https://wa.me/6281234567890',
+    whatsappUrl: 'https://wa.me/6282169796969',
   },
 }

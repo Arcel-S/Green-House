@@ -33,7 +33,7 @@ function PlantDetailPage() {
       description: '',
       careSteps: [],
       lightNeeds: '',
-      whatsappUrl: 'https://wa.me/6281234567890',
+      whatsappUrl: 'https://wa.me/6282169796969',
     }
   const { toggleFavoritePlant, isPlantFavorite } = useFavorites()
 
