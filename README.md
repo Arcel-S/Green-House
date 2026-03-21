@@ -5,16 +5,18 @@ TreeMart adalah aplikasi e-commerce modern untuk jual beli tanaman hias dan pera
 ---
 
 ## 📋 Daftar Isi
+- [Fitur Utama](#-fitur-utama)
+- [Recent Bug Fixes & Updates](#-recent-bug-fixes--updates)
+- [UI/UX Elements](#-uiux-elements)
+- [Halaman & Routing](#-halaman--routing)
+- [Komponen Utama](#-komponen-utama)
+- [Teknologi & Stack](#-teknologi--stack)
+- [Instalasi & Setup](#-instalasi--setup)
+- [Perintah npm](#-perintah-npm)
+- [Deployment](#-deployment)
 - [Ringkasan Framework & Alur Kerja](#-ringkasan-framework--alur-kerja)
 - [Log Pembaruan Per Update](#-log-pembaruan-per-update)
-- [Fitur Utama](#fitur-utama)
-- [UI/UX Elements](#uiux-elements)
-- [Halaman & Routing](#halaman--routing)
-- [Komponen Utama](#komponen-utama)
-- [Teknologi & Stack](#teknologi--stack)
-- [Instalasi & Setup](#instalasi--setup)
-- [Perintah npm](#perintah-npm)
-- [Struktur Folder](#struktur-folder)
+- [Struktur Folder](#-struktur-folder)
 
 ---
 
