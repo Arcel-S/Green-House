@@ -5,6 +5,7 @@ TreeMart adalah aplikasi e-commerce modern untuk jual beli tanaman hias dan pera
 ---
 
 ## 📋 Daftar Isi
+- [Log Pembaruan Per Update](#-log-pembaruan-per-update)
 - [Fitur Utama](#fitur-utama)
 - [UI/UX Elements](#uiux-elements)
 - [Halaman & Routing](#halaman--routing)
@@ -441,6 +442,51 @@ location / {
   try_files $uri /index.html;
 }
 ```
+
+## 📝 Log Pembaruan Per Update
+
+Format ini dipakai supaya update README dan GitHub konsisten satu per satu, bukan digabung acak.
+
+1. **Update 01 - Sinkronisasi Data Tanaman Utama**
+- Sumber data diubah dari katalog lama ke data bibit pohon.
+- Struktur `featuredPlants`, `catalogPlants`, dan `plantDetailsBySlug` diselaraskan.
+- Daftar tanaman utama: Meranti, Sengon, Alpukat Siger, Pucuk Merah, Sikat Botol, Jati Putih, Kembang Merak, Kaliandra, Tabebuya, Mahoni, Akasia.
+
+2. **Update 02 - Pembaruan URL Gambar Cloudinary**
+- URL gambar semua tanaman utama diganti ke Cloudinary terbaru.
+- URL khusus Kaliandra diperbarui ke versi terbaru (`Kaliandra_esazcp.png`).
+
+3. **Update 03 - Penambahan Tanaman Ulin**
+- Menambahkan `Bibit Ulin` ke `featuredPlants`.
+- Menambahkan `Bibit Ulin` ke `catalogPlants`.
+- Menambahkan detail lengkap `bibit-ulin` ke `plantDetailsBySlug`.
+
+4. **Update 04 - Homepage Tanaman Populer Maksimal 4 Item**
+- Komponen tanaman populer di homepage tetap random.
+- Jumlah kartu dibatasi maksimal 4 item per render.
+
+5. **Update 05 - Validasi Keranjang dengan Popup Kustom**
+- Mengganti validasi hapus dari `window.confirm` menjadi modal popup kustom.
+- Validasi diterapkan untuk:
+  - Pengurangan kuantitas sampai 0.
+  - Tombol `Hapus` item (teks merah).
+  - Tombol `Kosongkan` keranjang.
+
+6. **Update 06 - Integrasi Checkout WhatsApp Dinamis**
+- Menambahkan generator pesan checkout berisi detail item dan total pembayaran.
+- Tombol checkout membuka WhatsApp dengan pesan yang sudah terformat.
+
+7. **Update 07 - Penyempurnaan Navigasi dan Layout**
+- Navbar desktop di header disimetriskan agar benar-benar center.
+- Menambahkan reset scroll global saat pindah route (selalu mulai dari atas).
+- Menambahkan bottom navigation mobile global agar muncul di semua halaman.
+- Menghapus bottom navigation duplikat dari halaman katalog.
+- Menyesuaikan posisi CTA fixed di keranjang/detail agar tidak tabrakan dengan bottom nav mobile.
+
+8. **Update 08 - Penyelarasan Footer Mobile**
+- Brand `TreeMart` di footer dibuat center pada mobile.
+- Layout desktop tetap left-aligned seperti sebelumnya.
+
 
 **Apache .htaccess:**
 ```apache
