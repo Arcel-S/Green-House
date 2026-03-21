@@ -3,12 +3,28 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { catalogPlants, featuredPlants, plantDetailsBySlug } from '../data/plants'
 import { useFavorites } from '../hooks/useFavorites'
 
-const WHATSAPP_NUMBER = '082169796969'
+const WHATSAPP_NUMBER = '+62 895-6100-20963'
+
+function normalizeWhatsAppNumber(rawNumber) {
+  const digits = String(rawNumber).replace(/\D/g, '')
+
+  if (digits.startsWith('0')) {
+    return `62${digits.slice(1)}`
+  }
+
+  if (digits.startsWith('62')) {
+    return digits
+  }
+
+  if (digits.startsWith('8')) {
+    return `62${digits}`
+  }
+
+  return digits
+}
 
 function buildWhatsAppUrl(plantName) {
-  const normalizedNumber = WHATSAPP_NUMBER.startsWith('0')
-    ? `62${WHATSAPP_NUMBER.slice(1)}`
-    : WHATSAPP_NUMBER
+  const normalizedNumber = normalizeWhatsAppNumber(WHATSAPP_NUMBER)
   const message = `Saya ingin bertanya lebih lanjut tentang tanaman ${plantName} ini.`
 
   return `https://api.whatsapp.com/send?phone=${normalizedNumber}&text=${encodeURIComponent(message)}`
@@ -33,7 +49,7 @@ function PlantDetailPage() {
       description: '',
       careSteps: [],
       lightNeeds: '',
-      whatsappUrl: 'https://wa.me/6282169796969',
+      whatsappUrl: 'https://wa.me/62895610020963',
     }
   const { toggleFavoritePlant, isPlantFavorite } = useFavorites()
 
@@ -204,3 +220,4 @@ function PlantDetailPage() {
 }
 
 export default PlantDetailPage
+

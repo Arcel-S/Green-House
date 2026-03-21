@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../hooks/useCart'
 
-const WHATSAPP_NUMBER = '082169796969'
+const WHATSAPP_NUMBER = '+62 895-6100-20963'
 
 function formatCurrency(value) {
   return `Rp ${new Intl.NumberFormat('id-ID').format(value)}`
@@ -12,10 +12,26 @@ function parsePrice(price) {
   return Number(String(price).replace(/[^0-9]/g, '')) || 0
 }
 
+function normalizeWhatsAppNumber(rawNumber) {
+  const digits = String(rawNumber).replace(/\D/g, '')
+
+  if (digits.startsWith('0')) {
+    return `62${digits.slice(1)}`
+  }
+
+  if (digits.startsWith('62')) {
+    return digits
+  }
+
+  if (digits.startsWith('8')) {
+    return `62${digits}`
+  }
+
+  return digits
+}
+
 function buildCheckoutWhatsAppUrl(items, totalPrice) {
-  const normalizedNumber = WHATSAPP_NUMBER.startsWith('0')
-    ? `62${WHATSAPP_NUMBER.slice(1)}`
-    : WHATSAPP_NUMBER
+  const normalizedNumber = normalizeWhatsAppNumber(WHATSAPP_NUMBER)
 
   const itemLines = items.map((item, index) => {
     const unitPrice = parsePrice(item.price)
