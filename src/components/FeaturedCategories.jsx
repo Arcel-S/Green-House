@@ -3,27 +3,27 @@ import { Link } from 'react-router-dom'
 const categories = [
   {
     id: 1,
-    name: "Tanaman Indoor",
-    filter: "Indoor",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPWZTfLNnpa1eYmJvZLCGnX6xRN8mdvWnyLqMoPdm1CB7iAkO7rKbKn9j2_fnaYR0r4RkeDOFobjmhVqNv2OkrCvP08wACKjtSoz-gT-kygD8mrkqOCQEMVFXlLUqOHVywHfDzvQXwUlRPQzjIuq6YPdDgls36IcJXT9iA3OnmpTLGoEOHmkfjESXhKO0ZjXoI4h96d1gf35ByCkrmas0CC5fnkMKd9Cc23BMc38GByDMNCgZGnWKJmNKM7O6-ghR4XVXhBPmVAQ",
+    name: "Pohon Kayu Keras",
+    filter: "Pohon Kayu Keras",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAzqAI8qv6R-6Ar0m1r8jJDUjADs2wbEkWqUKyuanP5qAi_0x3HF_p7wpw0kS2B4enwmHxVkg5aA1WtN4PLea9PO9ltu6nc6rKFEohdS5Q9-m3HD77tH4f4RqwE5LnpixID4bhD-AEgf51E0DZ0bdIsa4jX3nyOLv9h4lRBEt3IkBxfD_FlRKVe9uvEST0a9Bef_wWs2Lzb4jjtGf5F_05gUYNPQeEbQb_-w2B9P_ZUZ_L6B6whCTa0WxrUhHWTI5X7qIwRKggTeQ",
   },
   {
     id: 2,
-    name: "Sukulen",
-    filter: "Sukulen",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDFHkB2cpJyJ6RaPGk8EYZhaiVs7Dpfb4ZS2kIh9Ql9PwFfktYTF4zsnRpdfltEuAw3BjvW2gImboA-zI45Iwymw4UQuVlDjhRQtt4TaPLDgZ-xIVBfn05UdRwgN7qLAbiFeyF_8Pb1jg5-wMYsPtm_9CkdJ_vyZhZiHV8MFgkV0gRCJvdWPxsjIsSIIOgA3r2M9juXDlfyitEjthsvCFAZO0RyGmS7MajF7BWcU80D-QUdSnH8YHf_XjN6gRb3Ovh7tYhg4BUzcQ",
+    name: "Pioneer",
+    filter: "Pioneer",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCzpC_2NlbtDI1EeAZBY-ad9dbyIE5SwXodXqK7unmXaXdvtJOqMTaFAbw0A2otab9ppWiTsK5_nhetV12xHxY6zAIdzTaa2_OsNT28CFKVlI90M6SbVVpowXIr4ofsdIPvT3fZltWpC554WvTVemQY89KNbtjVouUoq886EeNV2Pz1iiC2oIXpGVpzFM9-skOPJWIWbcR0DlwWT6SpbMlPK1d740P_2ObTCUNUuaD7Boy00JPDmJJ73R0Z4ave1mfPvgkz2_1Vgw",
   },
   {
     id: 3,
-    name: "Tanaman Gantung",
-    filter: "Tanaman Gantung",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCQxUB8RqMsuNHPVllfa1mRb_tRASamfh_8lA0THP0f6eH2ZiV9k0lznpMgcE9BZONKfK1JjA92LIGL-gLwke2WPFEtSHVLyjTbTwCI7ezlag9tj8BaqXDniQWew9OiZDAQ-Bs9arJrlf6W8KtRy3ngWTANpl_jPVQTpxlht4RSau6f0QUUv9NirMW2Rz3upS9QQS9FnJWn0TLnNmwH2Z08YC3CJT_q810FKb00VTKRjLfOujen1eGYeoT1bOWzs6S0v40VID3jVg",
+    name: "Tanaman Hias & Estetika",
+    filter: "Tanaman Hias & Estetika",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBhEGpK4tPpEdDjTfkPjeR5wAGrxdxDt2m-GO5-st8ass80LtYs8TD9rBLEZcs2Ib3e7zd11NaPLsn7NId-L_IfI1OlH2d0w6ltAV89n-EbkjbaZle1a9e6-leu7VC6nksF8pf6mJln6mhM16_f6ngoUqQp-7U60_OJtu0m4CKwcUy_Ukpv_BdKEUxQDMUw9x1a9H5JsObKIixUktRKPDdo-ky1mLlhEFmxOLg3xkEOw6YF2DsSTQjO8x9Cl342MtlAdB4Be02EgQ",
   },
   {
     id: 4,
-    name: "Meja Kerja",
-    filter: "Meja Kerja",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCNdeZCuvuB5j7dLXZN4r2RJDAqMNZ5KebWTLPgyZz8rBYSoxFHY7y0Zf7xRm5aL110oNlGEch73q3JDFCRmDA2WD-45-g8ISJBWD0qieN-8_XbYCfsUhUgHXg9-C9utM6bDhlIx-W3jHMYqLsNGlbDt5OgCyZlsISWFyVZ_gbtpIl_dTxptrC4nMDsdVk65dOPQYsrX5JPaPcXryCjvfhnJjnc2UzWHBi3ehUxVRVwLAg9R1vlbAEJfUuv9Q3LsoR1o0qbjxbT0A",
+    name: "Tanaman Pangan",
+    filter: "Tanaman Pangan",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuANob6D6MTLPMbj77Br7qbzbSAq76yWowEjMphhiDBhaYg_vJOwumXfGPWCNMsIeC_7OKDLvOW1XTIyIHCvq9REgsoZp9UvhlvVJiiPGE8E2rbFrk-out4a_uBgnuj8p7nIMJj9h_4rKfhGmH1ec-CF5vtACMBap_ycxU8UO0AC-j_dtcQhs0N8XZRgkqLeBs8mlST3r5l8zTB1HVdza0-NsHTQs-EHBiiVDkgkvSdOtcYkhLfFeb5kPDDO2z8Nj-aET_ZkSPAEJQ",
   },
 ];
 
