@@ -222,6 +222,7 @@ Tampilan Produk = (Kategori Filter) → (Sort by Care) → (Sort by Price) → (
 - Remove single item
 - View empty state message ketika cart kosong
 - Checkout via WhatsApp link
+- Setelah klik checkout dan diarahkan ke WhatsApp, keranjang otomatis dikosongkan
 - Persistent cart data (localStorage)
 
 ---
@@ -522,6 +523,10 @@ Format ini dipakai supaya update README dan GitHub konsisten satu per satu, buka
 8. **Update 08 - Penyelarasan Footer Mobile**
 - Brand `TreeMart` di footer dibuat center pada mobile.
 - Layout desktop tetap left-aligned seperti sebelumnya.
+
+9. **Update 09 - Auto Clear Cart Setelah Checkout**
+- Setelah pengguna klik tombol checkout dan berpindah ke WhatsApp, item keranjang otomatis dikosongkan.
+- Menambahkan fallback redirect agar alur tetap berjalan saat popup/tab baru diblokir browser.
 
 
 **Apache .htaccess:**
