@@ -3,6 +3,17 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { catalogPlants, featuredPlants, plantDetailsBySlug } from '../data/plants'
 import { useFavorites } from '../hooks/useFavorites'
 
+const WHATSAPP_NUMBER = '082169796969'
+
+function buildWhatsAppUrl(plantName) {
+  const normalizedNumber = WHATSAPP_NUMBER.startsWith('0')
+    ? `62${WHATSAPP_NUMBER.slice(1)}`
+    : WHATSAPP_NUMBER
+  const message = `Saya ingin bertanya lebih lanjut tentang tanaman ${plantName} ini.`
+
+  return `https://api.whatsapp.com/send?phone=${normalizedNumber}&text=${encodeURIComponent(message)}`
+}
+
 function PlantDetailPage() {
   const navigate = useNavigate()
   const { slug = 'monstera-deliciosa' } = useParams()
@@ -33,6 +44,7 @@ function PlantDetailPage() {
     price: plant.price,
     slug: plant.slug,
   }
+  const whatsappHref = buildWhatsAppUrl(plant.name)
 
   useEffect(() => {
     document.title = 'TreeMart - Detail Tanaman'
@@ -159,7 +171,7 @@ function PlantDetailPage() {
         )}
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 flex items-center gap-4 border-t border-primary/10 bg-background-light p-4 dark:bg-background-dark">
+      <div className="fixed bottom-16 left-0 right-0 flex items-center gap-4 border-t border-primary/10 bg-background-light p-4 dark:bg-background-dark md:bottom-0">
         <button
           type="button"
           className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"
@@ -176,7 +188,7 @@ function PlantDetailPage() {
         </button>
         <a
           className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#25D366] py-3.5 font-bold text-white shadow-lg transition-opacity hover:opacity-90"
-          href={plant.whatsappUrl}
+          href={whatsappHref}
           target="_blank"
           rel="noreferrer"
         >
