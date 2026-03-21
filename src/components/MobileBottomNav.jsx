@@ -29,10 +29,6 @@ export default function MobileBottomNav() {
             )}
           </NavLink>
         ))}
-        <a className="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
-          <span className="material-symbols-outlined">person</span>
-          <span className="text-[10px] font-medium">Profil</span>
-        </a>
       </div>
     </nav>
   )

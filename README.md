@@ -92,7 +92,21 @@ TreeMart adalah aplikasi e-commerce modern untuk jual beli tanaman hias dan pera
   3. Tekan tombol `ESC` key
   4. Klik backdrop overlay (semi-transparent background)
 - ✅ **Backdrop Overlay** - Semi-transparent overlay muncul saat mobile menu terbuka untuk fokus user
-
+### Latest Updates (v1.2.0)
+- ✅ **Removed Mobile Profile Link** - Profil link dihapus dari footer navbar mobile
+  - Mobile navbar sekarang hanya menampilkan 3 item: Beranda, Katalog, Koleksi
+  - Lebih fokus pada navigasi utama aplikasi
+- ✅ **Removed Burger Menu** - Hamburger menu dihapus dari mobile header
+  - Navigasi sudah tersedia di footer navbar, jadi burger menu tidak perlu
+  - Header mobile sekarang hanya menampilkan logo TreeMart dan tombol keranjang
+- ✅ **Added Social Share Functionality** - Button "share" di footer sekarang berfungsi
+  - Browser dengan Web Share API: buka dialog share native sistem
+  - Browser tanpa Web Share API: dropdown menu dengan pilihan platform:
+    - Instagram: copy link ke clipboard
+    - Facebook: share dialog langsung ke Facebook
+    - Twitter: buka tweet dialog dengan link website
+    - WhatsApp: share link ke WhatsApp dengan text preview
+  - Share button menampilkan dropdown menu di atas button (positioned absolutely)
 ---
 
 ## 🎨 UI/UX Elements
@@ -527,6 +541,23 @@ Format ini dipakai supaya update README dan GitHub konsisten satu per satu, buka
 9. **Update 09 - Auto Clear Cart Setelah Checkout**
 - Setelah pengguna klik tombol checkout dan berpindah ke WhatsApp, item keranjang otomatis dikosongkan.
 - Menambahkan fallback redirect agar alur tetap berjalan saat popup/tab baru diblokir browser.
+
+10. **Update 10 - UI/UX Optimization & Mobile Navigation Cleanup (v1.2.0)**
+- **Removed Mobile Profile Link**: Profil link dihapus dari MobileBottomNav
+  - Mobile navbar sekarang hanya menampilkan 3 item navigasi utama: Beranda, Katalog, Koleksi
+  - Lebih fokus dan tidak membingungkan pengguna
+- **Removed Hamburger Menu**: Burger button dihapus dari Header komponen
+  - Navigasi sudah tersedia lengkap di footer bottom navbar mobile
+  - Header mobile sekarang hanya memiliki logo TreeMart dan tombol keranjang
+  - Mengurangi clutter di header dan menyederhanakan UX
+- **Added Social Media Share Functionality**: Button "share" di footer sekarang fully functional
+  - Deteksi Web Share API: jika tersedia, gunakan share dialog native sistem operasi
+  - Fallback untuk browser lama: dropdown menu dengan 4 pilihan platform social media
+  - Instagram: copy website link ke clipboard (Instagram tidak support direct share)
+  - Facebook: buka Facebook share dialog dengan URL website
+  - Twitter: buka Twitter tweet composer dengan link dan text predefined
+  - WhatsApp: share link ke WhatsApp dengan pesan text
+  - Menu dropdown di-positioning absolutely di atas button dengan styling dark mode support
 
 
 **Apache .htaccess:**
